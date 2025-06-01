@@ -21,9 +21,22 @@ private:
     }
 };
 
-TEST(SoundexEncoding, RetainSoleLetterOfOneLetterWord)
+class SoundexEncoding : public ::testing::Test
 {
+public:
     Soundex soundex;
+};
+
+TEST_F(SoundexEncoding, RetainSoleLetterOfOneLetterWord)
+{
     auto encoded = soundex.encode("A");
+
     ASSERT_THAT(encoded, Eq("A000"));
+}
+
+TEST_F(SoundexEncoding, PadsWithZeroToEnsureThreeDigits)
+{
+    auto encoded = soundex.encode("I");
+
+    ASSERT_THAT(encoded, Eq("I000"));
 }
