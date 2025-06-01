@@ -3,22 +3,8 @@
 //
 
 #include "gmock/gmock.h"
-#include <string>
+#include "Soundex.h"
 using namespace testing;
-
-class Soundex {
-public:
-    [[nodiscard]] std::string encode(const std::string& word) const
-    {
-        return zeroPad(word);
-    }
-
-private:
-    [[nodiscard]] std::string zeroPad(const std::string& word) const
-    {
-        return word + "000";
-    }
-};
 
 class SoundexEncoding : public Test
 {
