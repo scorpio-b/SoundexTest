@@ -13,9 +13,10 @@ public:
 };
 
 TEST_F(SoundexEncoding, RetainSoleLetterOfOneLetterWord) {
-    ASSERT_THAT(soundex.encode("A"), Eq("A000"));
+    ASSERT_THAT(soundex.encode("Ab"), Eq("A100"));
 }
 
 TEST_F(SoundexEncoding, PadsWithZeroToEnsureThreeDigits) {
     ASSERT_THAT(soundex.encode("I"), Eq("I000"));
 }
+
