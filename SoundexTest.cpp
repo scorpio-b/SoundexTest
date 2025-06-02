@@ -23,5 +23,10 @@ TEST_F(SoundexEncoding, ReplaceConsonantsWithAppropriateDigits)
 
 TEST_F(SoundexEncoding, PadsWithZeroToEnsureThreeDigits)
 {
-    ASSERT_THAT(soundex.encode("I"), Eq("I000"));
+    EXPECT_THAT(soundex.encode("I"), Eq("I000"));
+}
+
+TEST_F(SoundexEncoding, ReplacesMultipleConsonantsWithDigits)
+{
+    ASSERT_THAT(soundex.encode("Acdl"), Eq("A234"));
 }
